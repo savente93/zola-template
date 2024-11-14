@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <title>{% block htmltitle %}{{ config.title | safe}}{% endblock htmltitle %}</title>
+
+        {%- block canonical -%}
+            {% if page is defined%}
+                <link rel="canonical" href="{{page.permalink | safe}}">
+            {% elif section is defined %}
+                <link rel="canonical" href="{{section.permalink | safe}}">
+            {% endif %}
+        {%- endblock -%}
+
+        {%- if config.generate_rss -%}
+            <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path="rss.xml", trailing_slash=false) | safe}}">
+        {%- endif -%}
+
+
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="{{ get_url(path="base.css", trailing_slash=false) | safe}}">
+
+        {%- block prelude -%}
+        {%- endblock prelude -%}
+
+    </head>
+    <body>
+
+
+        {% block main %}
+            <main>
+                {% block content %}
+                {% endblock content %}
+            
+            </main>
+        {% endblock main %}
+    </body>
+</html>
