@@ -1,0 +1,28 @@
+$main-color: #f4f4f4;
+$highlight-color: #96c3ec;
+$menu-color:#333333;
+$padding-left: 10vw;
+$max-content-width: 80ch;
+$content-width: 80vw;
+$font-color: #000;
+
+body {
+	background-color: $main-color;
+	margin: 0;
+}
+
+main {
+	background-color: $main-color;
+	display: block;
+	padding-left: $padding-left;
+	width: $content-width;
+	max-width: $max-content-width;
+}
+
+//   Mobile
+@media screen and (max-width: 1050px) {
+	body {
+		font-size: 1em;
+	}
+}
+	
